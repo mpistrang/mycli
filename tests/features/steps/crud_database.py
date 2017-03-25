@@ -45,15 +45,15 @@ def step_db_connect_test(context):
     context.cli.sendline('use {0}'.format(db_name))
 
 
-@when('we connect to mysql')
-def step_db_connect_mysql(context):
+@when('we connect to dbserver')
+def step_db_connect_dbserver(context):
     """
     Send connect to database.
     """
     context.cli.sendline('use mysql')
 
 
-@then('mycli exits')
+@then('dbcli exits')
 def step_wait_exit(context):
     """
     Make sure the cli exits.
@@ -61,7 +61,7 @@ def step_wait_exit(context):
     wrappers.expect_exact(context, pexpect.EOF, timeout=5)
 
 
-@then('we see mycli prompt')
+@then('we see dbcli prompt')
 def step_see_prompt(context):
     """
     Wait to see the prompt.
